@@ -58,6 +58,9 @@
 </div>
 
 <style>
+  .outer-container {
+    user-select: none;
+  }
   .title {
     cursor: pointer;
   }
