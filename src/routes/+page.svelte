@@ -36,27 +36,34 @@
 
       <div class="panels">
         <div class="panel panel-blue">
-          <h5 class="header-bold">Stream In Live Feeds</h5>
+          <h5 class="header-bold">Support for Common Crops</h5>
           <p>
-            Stream in live CCTV or personal feeds for analysis by selecting
-            different cameras.
+            CROP-D supports the most common crops in India like Potato, Tomato,
+            Bell Pepper and Corn. We are working on adding more crops to the
+            list.
           </p>
         </div>
         <div class="panel panel-purple">
-          <h5 class="header-bold">Upload Recorded Videos</h5>
-          <p>Upload recorded videos for analysis.</p>
+          <h5 class="header-bold">Reliable Models</h5>
+          <p>
+            CROP-D uses advanced models trained on thousands of samples to
+            provide the best results. You can choose from a variety of models.
+          </p>
         </div>
         <div class="panel panel-purple">
-          <h5 class="header-bold">Completely Client Side and Real Time</h5>
+          <h5 class="header-bold">Quick and Protable</h5>
           <p>
-            Once the model has been downloaded, the application is completely
-            client side and can be used even offline in real time.
+            CROP-D is a web application that can be used on any device with an
+            internet connection. You can use it on your phone, tablet or laptop.
           </p>
         </div>
 
         <div class="panel panel-blue">
-          <h5 class="header-bold">Modularity</h5>
-          <p>The type of analysis can be changed on the fly.</p>
+          <h5 class="header-bold">Cure Suggestions</h5>
+          <p>
+            CROP-D provides suggestions on how to cure the identified disease.
+            You can also find more information on the disease on the internet.
+          </p>
         </div>
       </div>
     </div>
