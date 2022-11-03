@@ -29,7 +29,6 @@ declare module '$env/static/private' {
 	export const SHELL: string;
 	export const npm_command: string;
 	export const SESSION_MANAGER: string;
-	export const WINDOWID: string;
 	export const npm_config_userconfig: string;
 	export const QT_SCREEN_SCALE_FACTORS: string;
 	export const COLORTERM: string;
@@ -37,12 +36,9 @@ declare module '$env/static/private' {
 	export const npm_config_cache: string;
 	export const XDG_SESSION_PATH: string;
 	export const TERM_PROGRAM_VERSION: string;
-	export const _P9K_TTY: string;
 	export const NODE: string;
 	export const LC_ADDRESS: string;
 	export const LC_NAME: string;
-	export const P9K_TTY: string;
-	export const SHELL_SESSION_ID: string;
 	export const COLOR: string;
 	export const DESKTOP_SESSION: string;
 	export const LC_MONETARY: string;
@@ -69,13 +65,10 @@ declare module '$env/static/private' {
 	export const LC_PAPER: string;
 	export const LS_COLORS: string;
 	export const XDG_CURRENT_DESKTOP: string;
-	export const KONSOLE_DBUS_SERVICE: string;
 	export const npm_package_version: string;
-	export const KONSOLE_DBUS_SESSION: string;
 	export const GIT_ASKPASS: string;
 	export const XDG_SEAT_PATH: string;
 	export const INVOCATION_ID: string;
-	export const KONSOLE_VERSION: string;
 	export const MANAGERPID: string;
 	export const INIT_CWD: string;
 	export const CHROME_DESKTOP: string;
@@ -89,7 +82,6 @@ declare module '$env/static/private' {
 	export const npm_config_prefix: string;
 	export const USER: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const COLORFGBG: string;
 	export const KDE_SESSION_VERSION: string;
 	export const PAM_KWALLET5_LOGIN: string;
 	export const DISPLAY: string;
@@ -105,7 +97,6 @@ declare module '$env/static/private' {
 	export const XDG_RUNTIME_DIR: string;
 	export const npm_package_json: string;
 	export const LC_TIME: string;
-	export const P9K_SSH: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const QT_AUTO_SCREEN_SCALE_FACTOR: string;
 	export const JOURNAL_STREAM: string;
@@ -124,7 +115,6 @@ declare module '$env/static/private' {
 	export const MAIL: string;
 	export const npm_node_execpath: string;
 	export const LC_NUMERIC: string;
-	export const OLDPWD: string;
 	export const TERM_PROGRAM: string;
 }
 
@@ -158,7 +148,6 @@ declare module '$env/dynamic/private' {
 		SHELL: string;
 		npm_command: string;
 		SESSION_MANAGER: string;
-		WINDOWID: string;
 		npm_config_userconfig: string;
 		QT_SCREEN_SCALE_FACTORS: string;
 		COLORTERM: string;
@@ -166,12 +155,9 @@ declare module '$env/dynamic/private' {
 		npm_config_cache: string;
 		XDG_SESSION_PATH: string;
 		TERM_PROGRAM_VERSION: string;
-		_P9K_TTY: string;
 		NODE: string;
 		LC_ADDRESS: string;
 		LC_NAME: string;
-		P9K_TTY: string;
-		SHELL_SESSION_ID: string;
 		COLOR: string;
 		DESKTOP_SESSION: string;
 		LC_MONETARY: string;
@@ -198,13 +184,10 @@ declare module '$env/dynamic/private' {
 		LC_PAPER: string;
 		LS_COLORS: string;
 		XDG_CURRENT_DESKTOP: string;
-		KONSOLE_DBUS_SERVICE: string;
 		npm_package_version: string;
-		KONSOLE_DBUS_SESSION: string;
 		GIT_ASKPASS: string;
 		XDG_SEAT_PATH: string;
 		INVOCATION_ID: string;
-		KONSOLE_VERSION: string;
 		MANAGERPID: string;
 		INIT_CWD: string;
 		CHROME_DESKTOP: string;
@@ -218,7 +201,6 @@ declare module '$env/dynamic/private' {
 		npm_config_prefix: string;
 		USER: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		COLORFGBG: string;
 		KDE_SESSION_VERSION: string;
 		PAM_KWALLET5_LOGIN: string;
 		DISPLAY: string;
@@ -234,7 +216,6 @@ declare module '$env/dynamic/private' {
 		XDG_RUNTIME_DIR: string;
 		npm_package_json: string;
 		LC_TIME: string;
-		P9K_SSH: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		QT_AUTO_SCREEN_SCALE_FACTOR: string;
 		JOURNAL_STREAM: string;
@@ -253,7 +234,6 @@ declare module '$env/dynamic/private' {
 		MAIL: string;
 		npm_node_execpath: string;
 		LC_NUMERIC: string;
-		OLDPWD: string;
 		TERM_PROGRAM: string;
 		[key: string]: string | undefined;
 	}

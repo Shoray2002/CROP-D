@@ -10,8 +10,34 @@
     <div class="content-shell">
       <div class="card card-100">
         <div class="card-content">
-          <div class="card-heading">
-            <h3>Test a leaf</h3>
+          <div class="top-content">
+            <h3 class="card-heading">Test a leaf</h3>
+            <div class="card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 1 22 22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                class="feather feather-settings"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 21h-4l-.551-2.48a6.991 6.991 0 0 1-1.819-1.05l-2.424.763-2-3.464 1.872-1.718a7.055 7.055 0 0 1 0-2.1L3.206 9.232l2-3.464 2.424.763A6.992 6.992 0 0 1 9.45 5.48L10 3h4l.551 2.48a6.992 6.992 0 0 1 1.819 1.05l2.424-.763 2 3.464-1.872 1.718a7.05 7.05 0 0 1 0 2.1l1.872 1.718-2 3.464-2.424-.763a6.99 6.99 0 0 1-1.819 1.052L14 21z"
+                /><circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
           </div>
           <div class="card-body">
             <p>Upload an image of a leaf to test for disease.</p>
@@ -25,7 +51,7 @@
         >
           <button>Get Started</button>
         </div>
-        <div class="card-bgimg" style="background:whitesmoke;" />
+        <div class="card-bgimg" />
       </div>
     </div>
   </div>
@@ -66,9 +92,10 @@
     appearance: none;
     background: none;
     color: #ededed;
-    border: 1px solid #ededed;
+    border: 2px solid #ededed;
     padding: 1em 1.5em;
     font-family: "Titillium Web", sans-serif;
+    border-radius: 0.5rem;
   }
 
   .card {
@@ -76,7 +103,8 @@
     color: #ededed;
     width: 100%;
     overflow: hidden;
-    margin: 0.5em;
+    margin: 0.5em 0.3em;
+    border-radius: 0.5em;
   }
 
   .card:hover {
@@ -100,8 +128,14 @@
     transform: translateY(0);
   }
 
+  .card-bgimg {
+    background-color: aquamarine;
+    background: url(https://soybeanresearchinfo.com/wp-content/uploads/2020/05/Frogeye-leaf-spot-Daren-Mueller-16-1300x867.jpg)
+      no-repeat center center;
+  }
+
   .card:hover .card-bgimg {
-    transform: scale(1.1);
+    transform: scale(1.2) translateX(5%);
   }
 
   .card:hover .card-action {
@@ -109,9 +143,34 @@
     transform: translate(-50%, 0);
   }
 
-  .card-100 .card-content {
-    transform: translateY(75.5%);
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+
+  .card-icon {
+    animation: spin 2s linear infinite;
+    filter: drop-shadow(0 0 0.5rem #000000);
+  }
+  .card-icon:hover {
+    scale: 1.1;
+    color: blanchedalmond;
+    animation: none;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* .card-100 .card-content {
+    transform: translateY(75.5%);
+  } */
 
   .card:before,
   .card:after {
@@ -130,6 +189,16 @@
     user-select: none;
   }
 
+  .card-heading {
+    font-size: 3.2em;
+    font-weight: 400;
+    color: var(--dashboard-heading-color-1);
+    margin: 0;
+    filter: drop-shadow(0px 3px 3px black);
+  }
+  .card-body p {
+    font-size: 1.2rem;
+  }
   /* .card:before {
     opacity: 0;
     border: 1px solid #ededed;
