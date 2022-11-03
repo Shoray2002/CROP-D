@@ -1,4 +1,8 @@
 <script>
+  // @ts-nocheck
+
+  import Modal from "$lib/Modal.svelte";
+  let showModal = false;
 </script>
 
 <head>
@@ -12,7 +16,7 @@
         <div class="card-content">
           <div class="top-content">
             <h3 class="card-heading">Test a leaf</h3>
-            <div class="card-icon">
+            <div class="card-icon" on:click={() => (showModal = true)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -53,10 +57,48 @@
         </div>
         <div class="card-bgimg" />
       </div>
+      {#if showModal}
+        <Modal on:close={() => (showModal = false)}>
+          <h2 slot="header">Select a Model</h2>
+          <!-- radio -->
+          <div class="radio">
+            <input
+              type="radio"
+              id="radio-1"
+              name="radio"
+              value="radio-1"
+              checked
+            />
+            <label for="radio-1"
+              >Random Forest Classifier <a href="/">learn more</a>
+            </label>
+          </div>
+          <div class="radio">
+            <input type="radio" id="radio-2" name="radio" value="radio-2" />
+            <label for="radio-2"
+              >ResNet Classifier <a href="/">learn more</a></label
+            >
+          </div>
+
+          <!-- <ol class="definition-list">
+            <li>of or relating to modality in logic</li>
+            <li>
+              containing provisions as to the mode of procedure or the manner of
+              taking effect —used of a contract or legacy
+            </li>
+            <li>of or relating to a musical mode</li>
+            <li>of or relating to structure as opposed to substance</li>
+            <li>
+              of, relating to, or constituting a grammatical form or category
+              characteristically indicating predication
+            </li>
+            <li>of or relating to a statistical mode</li>
+          </ol> -->
+        </Modal>
+      {/if}
     </div>
   </div>
 </div>
-
 
 <style>
   .wrapper,
