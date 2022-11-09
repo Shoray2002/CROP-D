@@ -21,10 +21,10 @@
       img.onload = () => {
         // get viewport size
         const viewPortHeight = window.innerHeight;
-        if (img.height < 0.8 * viewPortHeight) {
+        if (img.height < 0.6 * viewPortHeight) {
           card.style.height = `${img.height + 100}px`;
         } else {
-          card.style.height = `${0.8 * viewPortHeight}px`;
+          card.style.height = `${0.6 * viewPortHeight}px`;
         }
         const aspectRatio = img.width / img.height;
         card.style.width = card.style.height * aspectRatio + "px";
@@ -51,6 +51,7 @@
         </div>
         <input type="file" accept="image/*" bind:this={input} />
       </div>
+      <a class="btn btn-primary" href="/upload">TEST</a>
     </div>
   </div>
 </div>
@@ -70,12 +71,14 @@
   }
 
   .content-shell {
+    margin-top: 40px;
     width: 100%;
     height: 50vh;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   .content-shell .card {

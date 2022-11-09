@@ -31,7 +31,6 @@
         <a class="li-item" href="/dashboard">DashBoard</a>
         <a class="li-item" href="/">Usage</a>
         <a class="li-item" href="/">Working</a>
-        <a class="li-item" href="/">About</a>
       </li>
     </ul>
     <ul class="top-menu-mobile">
@@ -50,7 +49,6 @@
       <li><a href="/dashboard">DashBoard</a></li>
       <li><a href="/">Usage</a></li>
       <li><a href="/">Working</a></li>
-      <li><a href="/">About</a></li>
       <li><a href="/" target="_blank">Github</a></li>
     </ul>
   </div>
