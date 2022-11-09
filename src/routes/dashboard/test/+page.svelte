@@ -5,13 +5,32 @@
    * @type {HTMLInputElement}
    */
   let input;
+  let card;
+  let uploadLogo;
   const upload = () => {
     input.click();
-  };
-  let handleDragDrop = (
-    /** @type {{ preventDefault: () => void; stopPropagation: () => void; dataTransfer: { files: any; }; }} */ e
-  ) => {
-    console.log("dropped");
+    input.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      console.log(URL.createObjectURL(file));
+      card.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
+      card.style.backgroundSize = "contain";
+      card.style.backgroundPosition = "center";
+      card.style.backgroundRepeat = "no-repeat";
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        // get viewport size
+        const viewPortHeight = window.innerHeight;
+        if (img.height < 0.8 * viewPortHeight) {
+          card.style.height = `${img.height + 100}px`;
+        } else {
+          card.style.height = `${0.8 * viewPortHeight}px`;
+        }
+        const aspectRatio = img.width / img.height;
+        card.style.width = card.style.height * aspectRatio + "px";
+        uploadLogo.style.filter = "invert(0.9)";
+      };
+    });
   };
 </script>
 
@@ -21,15 +40,16 @@
 <div class="wrapper">
   <div class="row">
     <div class="content-shell">
-      <div
-        class="card card-100"
-        on:click={() => upload()}
-      >
+      <div class="card card-100" on:click={() => upload()} bind:this={card}>
         <h3>Drag-Or-Drop <br />your <br /> Image here</h3>
         <div class="upload-icon">
-          <img src="https://img.icons8.com/ios/512/upload.png" alt="upload" />
+          <img
+            src="https://img.icons8.com/ios/512/upload.png"
+            alt="upload"
+            bind:this={uploadLogo}
+          />
         </div>
-        <input type="file" accept="image/png" bind:this={input} />
+        <input type="file" accept="image/*" bind:this={input} />
       </div>
     </div>
   </div>
@@ -55,12 +75,12 @@
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
   }
 
   .content-shell .card {
     align-self: stretch;
   }
-
   .content-shell .content-shell .card {
     height: 25vh;
   }
@@ -81,6 +101,9 @@
   h3 {
     margin-bottom: 0;
     font-family: "Titillium Web", sans-serif;
+    color: whitesmoke;
+    filter: drop-shadow(0 0 0.09rem #000000);
+    font-weight: 800;
   }
   .card:hover {
     cursor: pointer;
