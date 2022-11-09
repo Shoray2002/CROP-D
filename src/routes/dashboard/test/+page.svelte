@@ -7,11 +7,12 @@
   let input;
   let card;
   let uploadLogo;
+  let formdata;
   const upload = () => {
     input.click();
     input.addEventListener("change", (e) => {
+      formdata = new FormData();
       const file = e.target.files[0];
-      console.log(URL.createObjectURL(file));
       card.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
       card.style.backgroundSize = "contain";
       card.style.backgroundPosition = "center";
@@ -19,7 +20,6 @@
       const img = new Image();
       img.src = URL.createObjectURL(file);
       img.onload = () => {
-        // get viewport size
         const viewPortHeight = window.innerHeight;
         if (img.height < 0.6 * viewPortHeight) {
           card.style.height = `${img.height + 100}px`;
@@ -30,7 +30,19 @@
         card.style.width = card.style.height * aspectRatio + "px";
         uploadLogo.style.filter = "invert(0.9)";
       };
+      formdata.append("file", file, file.name);
     });
+  };
+
+  const test = () => {
+    fetch("https://autochaptering.pagekite.me/upload", {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    })
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 </script>
 
@@ -51,7 +63,7 @@
         </div>
         <input type="file" accept="image/*" bind:this={input} />
       </div>
-      <a class="btn btn-primary" href="/upload">TEST</a>
+      <div class="btn btn-primary" on:click={() => test()}>TEST</div>
     </div>
   </div>
 </div>
