@@ -59,8 +59,8 @@
       </div>
       {#if showModal}
         <Modal on:close={() => (showModal = false)}>
-          <h2 slot="header">Select a Model</h2>
-          <!-- radio -->
+          <p class="modal-header">Select a Model</p>
+          <hr />
           <div class="radio">
             <input
               type="radio"
@@ -69,6 +69,7 @@
               value="radio-1"
               checked
             />
+
             <label for="radio-1"
               >Random Forest Classifier <a href="/">learn more</a>
             </label>
@@ -101,6 +102,13 @@
 </div>
 
 <style>
+  .modal-header {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
   .wrapper,
   .row {
     margin: auto;

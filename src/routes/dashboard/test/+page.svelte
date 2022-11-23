@@ -4,10 +4,13 @@
   /**
    * @type {HTMLInputElement}
    */
+  import Modal from "$lib/Modal.svelte";
+  let showModal = false;
   let input;
   let card;
   let uploadLogo;
   let formdata;
+  let identifiedDisease = "";
   const upload = () => {
     input.click();
     input.addEventListener("change", (e) => {
@@ -35,15 +38,21 @@
   };
 
   const test = () => {
-    fetch("https://autochaptering.pagekite.me/upload", {
-      method: "POST",
-      body: formdata,
-      redirect: "follow",
-    })
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+    console.log("early blight");
+    showModal = true;
+    identifiedDisease = "early blight";
   };
+
+  // const test = () => {
+  //   fetch("https://autochaptering.pagekite.me/upload", {
+  //     method: "POST",
+  //     body: formdata,
+  //     redirect: "follow",
+  //   })
+  //     .then((response) => response.text())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log("error", error));
+  // };
 </script>
 
 <head>
@@ -66,9 +75,40 @@
       <div class="btn btn-primary" on:click={() => test()}>TEST</div>
     </div>
   </div>
+  {#if showModal}
+    <Modal on:close={() => (showModal = false)}>
+      <h2 slot="header" class="modal-header">
+        <span class="heading-prefix"> Predicted Disease</span> <br />
+        <span class="heading-suffix">
+          <a
+            href={"https://www.google.co.in/search?q=" + identifiedDisease}
+            style="cursor:pointer; text-decoration:none;"
+            target="_blank"
+          >
+            <em> {identifiedDisease} </em></a
+          ></span
+        >
+      </h2>
+      <hr />
+      <iframe
+        src={"https://www.planetnatural.com/?s=" + identifiedDisease}
+        frameborder="0"
+        loading="lazy"
+        title="cure-iframe"
+      />
+    </Modal>
+  {/if}
 </div>
 
 <style>
+  .modal-header {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
   .wrapper,
   .row {
     margin: auto;
@@ -156,5 +196,20 @@
   }
   input {
     display: none;
+  }
+
+  iframe {
+    width: inherit;
+    height: 70vh;
+  }
+
+  .heading-prefix {
+    font-weight: 800;
+    color: var(--btn-primary-color-background-color);
+  }
+  .heading-suffix {
+    font-weight: 400;
+
+    text-transform: capitalize;
   }
 </style>
