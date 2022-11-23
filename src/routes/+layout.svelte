@@ -47,8 +47,8 @@
   <div class="navbar-links top-menu-mobile" class:active={is_active}>
     <ul class="sub-menu" on:click={toggle_active}>
       <li><a href="/dashboard">DashBoard</a></li>
-      <li><a href="/">Usage</a></li>
-      <li><a href="/">Working</a></li>
+      <li><a href="/tutorial">Tutorial</a></li>
+      <li><a href="/working">Working</a></li>
       <li><a href="/" target="_blank">Github</a></li>
     </ul>
   </div>
