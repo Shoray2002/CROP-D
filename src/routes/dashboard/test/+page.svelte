@@ -95,6 +95,7 @@
         frameborder="0"
         loading="lazy"
         title="cure-iframe"
+        X-Frame-Options:ALLOW-FROM
       />
     </Modal>
   {/if}
