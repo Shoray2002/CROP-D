@@ -44,14 +44,14 @@
           </p>
         </div>
         <div class="panel panel-purple">
-          <h5 class="header-bold">Reliable Models</h5>
+          <h5 class="header-bold">Reliable Model</h5>
           <p>
-            CROP-D uses advanced models trained on thousands of samples to
-            provide the best results. You can choose from a variety of models.
+            CROP-D uses advanced ResNet model trained on thousands of samples to
+            provide the best results.
           </p>
         </div>
         <div class="panel panel-purple">
-          <h5 class="header-bold">Quick and Protable</h5>
+          <h5 class="header-bold">Quick and Portable</h5>
           <p>
             CROP-D is a web application that can be used on any device with an
             internet connection. You can use it on your phone, tablet or laptop.
@@ -59,10 +59,10 @@
         </div>
 
         <div class="panel panel-blue">
-          <h5 class="header-bold">Cure Suggestions</h5>
+          <h5 class="header-bold">Learn More</h5>
           <p>
-            CROP-D provides suggestions on how to cure the identified disease.
-            You can also find more information on the disease on the internet.
+            CROP-D provides easy access to additional information on how to cure the
+            identified disease.
           </p>
         </div>
       </div>

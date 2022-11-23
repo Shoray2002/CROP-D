@@ -29,8 +29,8 @@
       <li>&nbsp;</li>
       <li class="header-bold li-items">
         <a class="li-item" href="/dashboard">DashBoard</a>
-        <a class="li-item" href="/">Usage</a>
-        <a class="li-item" href="/">Working</a>
+        <a class="li-item" href="/tutorial">Tutorial</a>
+        <a class="li-item" href="/working">Working</a>
       </li>
     </ul>
     <ul class="top-menu-mobile">
