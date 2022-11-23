@@ -43,6 +43,10 @@
     identifiedDisease = "early blight";
   };
 
+  const rdirect = () => {
+    window.open("https://www.planetnatural.com/?s=" + identifiedDisease);
+  };
+
   // const test = () => {
   //   fetch("https://autochaptering.pagekite.me/upload", {
   //     method: "POST",
@@ -78,7 +82,7 @@
   {#if showModal}
     <Modal on:close={() => (showModal = false)}>
       <h2 slot="header" class="modal-header">
-        <span class="heading-prefix"> Predicted Disease</span> <br />
+        <span class="heading-prefix"> Predicted Disease and Crop: </span> <br />
         <span class="heading-suffix">
           <a
             href={"https://www.google.co.in/search?q=" + identifiedDisease}
@@ -90,14 +94,9 @@
         >
       </h2>
       <hr />
-      <iframe
-        src={"https://www.planetnatural.com/?s=" + identifiedDisease}
-        frameborder="0"
-        loading="lazy"
-        title="cure-iframe"
-        X-Frame-Options:ALLOW-FROM="*"
-
-      />
+      <div class="btn btn-primary" on:click={() => rdirect()}>
+        Learn More...
+      </div>
     </Modal>
   {/if}
 </div>
@@ -107,10 +106,9 @@
     font-size: 2rem;
     font-weight: 500;
     margin-top: 0.3rem;
-    margin-bottom: 0.8rem;
     text-align: center;
+    font-weight: 800;
   }
-
   .wrapper,
   .row {
     margin: auto;
