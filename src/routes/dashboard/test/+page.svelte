@@ -5,11 +5,34 @@
    * @type {HTMLInputElement}
    */
   import Modal from "$lib/Modal.svelte";
+  let diseaseObject = {
+    Potato___healthy: "Potato Healthy",
+    Potato___Late_blight: "Potato Late Blight",
+    Potato___Early_blight: "Potato Early Blight",
+    Tomato___healthy: "Tomato Healthy",
+    Tomato___Late_blight: "Tomato Late Blight",
+    Tomato___Early_blight: "Tomato Early Blight",
+    Tomato___Leaf_Mold: "Tomato Leaf Mold",
+    Tomato___Septoria_leaf_spot: "Tomato Septoria Leaf Spot",
+    "Tomato___Spider_mites Two-spotted_spider_mite":
+      "Tomato Two Spotted Spider Mite",
+    Tomato___Target_Spot: "Tomato Target Spot",
+    Tomato___Tomato_Yellow_Leaf_Curl_Virus: "Tomato Yellow Leaf Curl Virus",
+    Tomato___Tomato_mosaic_virus: "Tomato Mosaic Virus",
+    Tomato___Bacterial_spot: "Tomato Bacterial Spot",
+    "Corn_(maize)___healthy": "Corn Healthy",
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": "Corn Gray Leaf Spot",
+    "Corn_(maize)___Common_rust_": "Corn Common Rust",
+    "Corn_(maize)___Northern_Leaf_Blight": "Corn Northern Leaf Blight",
+    "Pepper,_bell___healthy": "Bell Pepper Healthy",
+    "Pepper,_bell___Bacterial_spot": "Bell Pepper Bacterial Spot",
+  };
   let showModal = false;
   let input;
   let card;
   let uploadLogo;
   let formdata;
+  let identifiedPlant = "";
   let identifiedDisease = "";
   const upload = () => {
     input.click();
@@ -33,30 +56,39 @@
         card.style.width = card.style.height * aspectRatio + "px";
         uploadLogo.style.filter = "invert(0.9)";
       };
-      formdata.append("file", file, file.name);
+      formdata.append("image", file, file.name);
     });
+  };
+  const rdirect = () => {
+    window.open(
+      "https://www.planetnatural.com/?s=" +
+        identifiedPlant +
+        " " +
+        identifiedDisease
+    );
   };
 
   const test = () => {
-    console.log("early blight");
-    showModal = true;
-    identifiedDisease = "early blight";
+    fetch("https://autochaptering.pagekite.me/upload", {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    })
+      .then((response) => response.text())
+      .then((result) => {
+        showModal = true;
+        result = diseaseObject[result];
+        if (result) {
+          result = result.split(" ");
+          identifiedPlant = result[0];
+          identifiedDisease = result.slice(1).join(" ");
+        } else {
+          identifiedPlant = "Plant";
+          identifiedDisease = "no";
+        }
+      })
+      .catch((error) => console.log("error", error));
   };
-
-  const rdirect = () => {
-    window.open("https://www.planetnatural.com/?s=" + identifiedDisease);
-  };
-
-  // const test = () => {
-  //   fetch("https://autochaptering.pagekite.me/upload", {
-  //     method: "POST",
-  //     body: formdata,
-  //     redirect: "follow",
-  //   })
-  //     .then((response) => response.text())
-  //     .then((result) => console.log(result))
-  //     .catch((error) => console.log("error", error));
-  // };
 </script>
 
 <head>
@@ -81,21 +113,33 @@
   </div>
   {#if showModal}
     <Modal on:close={() => (showModal = false)}>
-      <h2 slot="header" class="modal-header">
-        <span class="heading-prefix"> Predicted Disease and Crop: </span> <br />
-        <span class="heading-suffix">
-          <a
-            href={"https://www.google.co.in/search?q=" + identifiedDisease}
-            style="cursor:pointer; text-decoration:none;"
-            target="_blank"
-          >
-            <em> {identifiedDisease} </em></a
-          ></span
-        >
-      </h2>
-      <hr />
-      <div class="btn btn-primary" on:click={() => rdirect()}>
-        Learn More...
+      <div slot="header" class="header-div">
+        {#if identifiedDisease == "no" || identifiedPlant == "Plant"}
+          <h2 class="modal-header">
+            <span class="heading-prefix">No Disease Found </span>
+          </h2>
+        {:else}
+          <h2 class="modal-header">
+            <span class="heading-prefix"> Predicted Crop and Disease: </span>
+            <br />
+            <span class="heading-suffix">
+              <a
+                href={"https://www.google.co.in/search?q=" +
+                  identifiedPlant +
+                  " " +
+                  identifiedDisease}
+                style="cursor:pointer; text-decoration:none;"
+                target="_blank"
+              >
+                <em>{identifiedPlant} - {identifiedDisease} </em></a
+              >
+            </span>
+          </h2>
+          <hr />
+          <div class="btn btn-primary" on:click={() => rdirect()}>
+            Learn More...
+          </div>
+        {/if}
       </div>
     </Modal>
   {/if}
@@ -108,6 +152,12 @@
     margin-top: 0.3rem;
     text-align: center;
     font-weight: 800;
+  }
+  .header-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .wrapper,
   .row {
