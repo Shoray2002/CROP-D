@@ -17,7 +17,7 @@
 ##### Additionally, you can learn more about the disease by hitting learn more
 
 #### You can also learn more about the model by going to the [working](./working) page.
-<center><img src="https://i.ibb.co/X7hqD40/3.png" alt="3" border="0" height="300px"></center>
+<center><img src="https://i.ibb.co/4MFxvBL/4.png" alt="4" border="0"></center>
 `;
 </script>
 

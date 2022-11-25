@@ -46,7 +46,7 @@
         <div class="panel panel-purple">
           <h5 class="header-bold">Reliable Model</h5>
           <p>
-            CROP-D uses advanced ResNet model trained on thousands of samples to
+            CROP-D uses advanced Machine Learning model trained using stacking to
             provide the best results.
           </p>
         </div>

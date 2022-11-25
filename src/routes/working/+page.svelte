@@ -3,8 +3,8 @@
   import SvelteMarkdown from "svelte-markdown";
 
   const rdirect = () => {
-    window.open("https://en.wikipedia.org/wiki/Residual_neural_network");
-  };
+    window.open("https://towardsdatascience.com/stacking-classifiers-for-higher-predictive-performance-566f963e4840");
+  };  
   const source = `
   <img src="https://miro.medium.com/max/665/1*0hEXoK6zXhTt05q3V3vmnA.png" alt="s" border="0">
 
