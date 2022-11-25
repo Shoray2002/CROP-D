@@ -6,24 +6,36 @@
     window.open("https://en.wikipedia.org/wiki/Residual_neural_network");
   };
   const source = `
-  <img src="https://i.ibb.co/ThpC42t/s.png" alt="s" border="0">
+  <img src="https://miro.medium.com/max/665/1*0hEXoK6zXhTt05q3V3vmnA.png" alt="s" border="0">
 
-  #### In ResNets, unlike in traditional neural networks, each layer feeds into the next layer, we use a network with residual blocks, each layer feeds into the next layer and directly into the layers about 2–3 hops away, to avoid over-fitting (a situation when validation loss stop decreasing at a point and then keeps increasing while training loss still decreases). This also helps in preventing vanishing gradient problem and allow us to train deep neural networks. Here is a simple residual block. We trained ResNet9 model with 6,589,734 parameters for this task.
-  ##### The achieved accuracy on the test dataset was 99.2%
+  #### This ML model consists of a stacking classifier(ensemble learning method) that uses the features obtained after  feature extractionfrom the image and feature selection to select the most relevant features. The model uses the following classifiers: Random Forest Classifier, K Nearest Neighbours, and Classifier Tree.
+  ##### The achieved accuracy on the test dataset was 95.4%
 
-  ### The prediction workflow is like this:
+### The prediction workflow is like this:
 
 #### 1. The user uploads an image of a leaf belonging to the diseased plant
 
 #### 2. The uploaded image is first temporarily stored in a folder named "uploads"
 
-#### 3. The prediction is carried out by creating a new instance of the ResNet model and loading the trained model (all its weights and biases) into it
+#### 3. Feature Extraction happens on the uploaded image 
+| Feature      | Description | Link     |
+| :---        |    :----   |          ---: |
+| Hu Momement      | Weighted average of image pixel intensities | [Hu Moment](https://learnopencv.com/shape-matching-using-hu-moments-c-python/)   |
+|Haralick Texture   | Haralick's paper describes applying the 14 equations above to four angular gray-Level co-occurrence spatial dependency matrices, which results in four values from each equation above. Haralick computed the mean and range for each of the 14 sets of four values resulting in 28 features.  | [HT](https://earlglynn.github.io/RNotes/package/EBImage/Haralick-Textural-Features.html)      |
+|Color Histogram   | Color histogram is a representation of the distribution of colors in an image        | [CH](https://en.wikipedia.org/wiki/Color_histogram )     |
 
-#### 4. The image is then preprocessed (its converted into a tensor, and then normalized) and the disease is then predicted using the model
+#### 4. Then Feature selection happens on the extracted features. We reduce the input variable to our model by using only relevant data and getting rid of noise.
 
-#### 5. These results are then displayed to the user, along with a link to the page containing the details of the disease
 
-##### Learn More about Resnet below
+#### 5. Then we cross validate the selected features to evaluate various models. We then use the ensemble technique to combine the predictions of the models to get the final prediction.
+
+#### 6. We then produce the final prediction and display it to the user.
+
+##### Given below are relvant figures of the training process:
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/263Vzkm/photo-2022-11-25-15-11-20.jpg" alt="cm" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/BB8KQXV/models-2.png" alt="models" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/4dxhvkf/output1.png" alt="output1" border="0"></a>
 `;
 </script>
 
